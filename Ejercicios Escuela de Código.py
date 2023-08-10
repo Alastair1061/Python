@@ -1,6 +1,6 @@
 '''
-Aqui se almacenan todos los ejercicios de Escuela de código de Python
-voy a hacer un menu para ejecutar ejercicio por ejercicio.
+Aqui se almacenan ejercicios de Escuela de código de Python
+Voy a hacer un menu para ejecutar ejercicio por ejercicio.
 '''
 
 while True:
@@ -22,12 +22,10 @@ Ingresa que ejercicio quieres ejecutar:
 14) 9.2
 15) 9.3
 16) 9.4
-0) Salir
-""")
+0) Salir""")
   ejercicio = int(input(""))
 
-  if ejercicio == 1:
-    
+  if ejercicio == 1: 
     print("4.1) Realizar un programa que inicialice una lista con 10 valores aleatorios (del 1 al 10) y posteriormente muestre en pantalla cada elemento de la lista junto con su cuadrado y su cubo.\n")
     
     import random
@@ -41,7 +39,6 @@ Ingresa que ejercicio quieres ejecutar:
       print("Elemento:", x,"Cuadrado:", x**2,"Cubo:", x**3)
 
   elif ejercicio == 2:
-  
     print("4.2) Crea una lista e inicializarla con 5 cadenas de caracteres leídas por teclado. Copialos elementos de la lista en otra lista pero en orden inverso, y muestra sus elementos por la pantalla.\n")  
 
     # Inicializar la lista y leer las 5 cadenas de caracteres por teclado
@@ -55,7 +52,6 @@ Ingresa que ejercicio quieres ejecutar:
     print(lista_inversa)
 
   elif ejercicio == 3:
-  
     print("4.3) Se quiere realizar un programa que lea por teclado las 5 notas obtenidas por un alumno (comprendidas entre 0 y 10). A continuación debe mostrar todas las notas, la nota media, la nota más alta que ha sacado y la menor.\n")
     
     # Inicializar la lista y leer las 5 notas por teclado
@@ -77,14 +73,14 @@ Ingresa que ejercicio quieres ejecutar:
     print("La nota menor es: ", min(lista3))
     print("El promedio de las notas es: ", sum(lista3)/len(lista3))
 
-    '''
-    4.4) Codifica un programa en python que nos permita guardar los nombres de los alumnos de una clase y las notas que han obtenido. 
-    Cada alumno puede tener distinta cantidad de notas. 
-    Guarda la información en un diccionario cuya claves serán los nombres de los alumnos y los valores serán listados con las notas de cada alumno.
-    El programa pedirá el número de alumnos que vamos a introducir, pedirá su nombre e irá pidiendo sus notas hasta que introduzcamos un número negativo. Al final el programa nos mostrará la lista de alumnos y la nota media obtenida por cada uno de ellos. 
-    Nota: si se introduce el nombre de un alumno que ya existe el programa nos dará un error.
-    '''
-
+  elif ejercicio == 4:
+    print("""
+4.4) Codifica un programa en python que nos permita guardar los nombres de los alumnos de una clase y las notas que han obtenido. 
+Cada alumno puede tener distinta cantidad de notas. 
+Guarda la información en un diccionario cuya claves serán los nombres de los alumnos y los valores serán listados con las notas de cada alumno.
+El programa pedirá el número de alumnos que vamos a introducir, pedirá su nombre e irá pidiendo sus notas hasta que introduzcamos un número negativo. Al final el programa nos mostrará la lista de alumnos y la nota media obtenida por cada uno de ellos. 
+Nota: si se introduce el nombre de un alumno que ya existe el programa nos dará un error.
+""")
     #Solicitar un numero positivo de alumnos
     while True:
       nAlumnos=int(input("Cuantos alumnos vamos a registrar: "))
@@ -100,17 +96,15 @@ Ingresa que ejercicio quieres ejecutar:
       
       nombreValido = False
       while not nombreValido: # Bucle para asegurarse de que se ingrese una nombre válido
+
         nombre=input("Ingresa su nombre: ")  
-        
         if nombre not in registro:
           nombreValido = True
+
           notas=[]
           while True: #Solicitar e ingresar las notas hasta que se ingrese un numero negativo
             nota=int(input("Ingresa la nota: "))
-            if sum(notas) == 0 and nota<0:
-              print("Nota no valida, intenta de nuevo")
-              continue
-            elif nota>10:
+            if (sum(notas) == 0 and nota<0) or nota>10:
               print("Nota no valida, intenta de nuevo")
               continue
             elif nota>=0:  
@@ -125,10 +119,9 @@ Ingresa que ejercicio quieres ejecutar:
     for alumno in registro:
       print(alumno, "tiene un promedio de", sum(registro[alumno])/len(registro[alumno]))
 
-    '''
-    4.5) Crea una tupla con los meses del año, pide números al usuario, si el número está entre 1 y la longitud máxima de la tupla, muestra el contenido de esa posición sino muestra un mensaje de error. El programa termina cuando el usuario introduce un cero.
-    '''
-
+  elif ejercicio == 5:
+    print("4.5) Crea una tupla con los meses del año, pide números al usuario, si el número está entre 1 y la longitud máxima de la tupla, muestra el contenido de esa posición sino muestra un mensaje de error. El programa termina cuando el usuario introduce un cero.\n")
+    
     meses=("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
     while True:
       n=int(input("Ingresa un numero: "))
@@ -136,10 +129,9 @@ Ingresa que ejercicio quieres ejecutar:
       elif n==0: break
       else: print("Mensaje de error")
 
-    '''
-    6.1) Realizar un ejemplo de menú, donde podemos escoger las distintas opciones hasta que seleccionamos la opción de “Salir”.
-    '''
-
+  elif ejercicio == 6:
+    print("6.1) Realizar un ejemplo de menú, donde podemos escoger las distintas opciones hasta que seleccionamos la opción de “Salir”\n.")
+    
     #Inicializar y mostrar el menu en forma de lista
     menu=("Sandia", "Melon", "Manzana", "Platano", "Uvas")
     print("El menú es:\n")
@@ -148,30 +140,29 @@ Ingresa que ejercicio quieres ejecutar:
     print("6) Salir")
 
     #Bucle para solicitar la opcion, verificarla y mostrarla o salir
-    while (True):
+    while True:
       op=int(input("\nElige la opcion deseada: "))
-      if(0<= op <=len(menu)): 
+      if 0<= op <=len(menu): 
         print("Elegiste " + menu[op-1])
-      elif(op == len(menu)+1): 
+      elif op == len(menu)+1: 
         break
       else: 
         print("Opcion no valida")
-    print("\nAdios")
-        
-    '''
-    6.2) Mostrar en pantalla los N primero número primos. Se pide por teclado la cantidad de números primos que queremos mostrar
-    '''
+    print("Adios")
+
+  elif ejercicio == 7:      
+    print("6.2) Mostrar en pantalla los N primero número primos. Se pide por teclado la cantidad de números primos que queremos mostrar\n")
 
     #Define una funcion que devuelve una lista con los n primeros números primos
     def obtener_numeros_primos(n):
       primos=[]
       x=2
-      while(len(primos)<n):
+      while len(primos)<n:
         x_es_primo=True
 
         #En este bucle comparo a x con los primos de mi lista y si alguno lo divide ya no será primo
         for y in primos:
-          if (x%y == 0):
+          if x%y == 0:
             x_es_primo=False
             break
 
@@ -184,22 +175,19 @@ Ingresa que ejercicio quieres ejecutar:
     n=int(input("\nIngresa cuantos numeros primos quieres: "))
     print("Los primeros", n, "números primos son:", obtener_numeros_primos(n))
 
-    '''
-    6.3) Una persona adquirió un producto para pagar en 20 meses. El primer mes pagó10 €, el segundo 20 €, el tercero 40 € y así sucesivamente. Realizar un algoritmo
-    para determinar cuánto debe pagar mensualmente y el total de lo que pagó
-    después de los 20 meses.
-    '''
+  elif ejercicio == 8:
+    print("""
+6.3) Una persona adquirió un producto para pagar en 20 meses. El primer mes pagó 10 €, el segundo 20 €, el tercero 40 € y así sucesivamente.
+Realizar un algoritmo para determinar cuánto debe pagar mensualmente y el total de lo que pagó después de los 20 meses.
+""")
 
     pago=10
     for x in range (20):
       print("El mes " + str(x+1) + " pago", pago)
       pago*=2
 
-    '''
-    6.4) Crea una aplicación que pida un número y calcule su factorial (El factorial de un número es el producto de todos los enteros entre 1 y el propio número y se
-    representa por el número seguido de un signo de exclamación. Por ejemplo 5! =
-    1x2x3x4x5=120).
-    '''
+  elif ejercicio == 9:
+    print("6.4) Crea una aplicación que pida un número y calcule su factorial (El factorial de un número es el producto de todos los enteros entre 1 y el propio número y se representa por el número seguido de un signo de exclamación. Por ejemplo 5! = 1x2x3x4x5=120).\n")
 
     n=int(input("\nIngresa un numero para calcular su factorial: "))
     factorial=1
@@ -207,15 +195,16 @@ Ingresa que ejercicio quieres ejecutar:
       factorial*=x+1
     print("El factorial es:", factorial)
 
-    """
-    8.1 Ejercicio 1 (2 puntos)
-    Escribe un programa python que pida un número por teclado y que cree un diccionario cuyas claves sean desde el número 1 hasta el número indicado, y los valores sean los cuadrados de las claves.
-    """
+  elif ejercicio == 10:
+    print("""
+8.1 Ejercicio 1 (2 puntos)
+Escribe un programa python que pida un número por teclado y que cree un diccionario cuyas claves sean desde el número 1 hasta el número indicado, y los valores sean los cuadrados de las claves.
+""")
 
     #Bucle para asegurar que se ingrese un número positivo
     while True:  
       n=int(input("Ingresa un numero: "))
-      if(n>0):
+      if n>0:
         break
 
     #Inicializar el diccionario y en un bucle asignar las claves y valores.
@@ -225,10 +214,11 @@ Ingresa que ejercicio quieres ejecutar:
       
     print(diccionario)
 
-    """
-    8.2 Ejercicio 2 (2 puntos)
-    Escribe un programa que lea una cadena y devuelva un diccionario con la cantidad de apariciones de cada carácter en la cadena.
-    """
+  elif ejercicio == 11:
+    print("""
+8.2 Ejercicio 2 (2 puntos)
+Escribe un programa que lea una cadena y devuelva un diccionario con la cantidad de apariciones de cada carácter en la cadena.
+""")
 
     #Recibe la cadena e inicializa el diccionario
     cadena=input("Escribe una cadena: ")
@@ -241,10 +231,11 @@ Ingresa que ejercicio quieres ejecutar:
 
     print(diccionario)
 
-    """
-    8.3 Ejercicio 3 (2 puntos)
-    Vamos a crear un programa en python donde vamos a declarar un diccionario para guardar los precios de las distintas frutas. El programa pedirá el nombre de la fruta y la cantidad que se ha vendido y nos mostrará el precio final de la fruta a partir de los datos guardados en el diccionario. Si la fruta no existe nos dará un error. Tras cada consulta el programa nos preguntará si queremos hacer otra consulta.
-    """
+  elif ejercicio == 12:
+    print("""
+8.3 Ejercicio 3 (2 puntos)
+Vamos a crear un programa en python donde vamos a declarar un diccionario para guardar los precios de las distintas frutas. El programa pedirá el nombre de la fruta y la cantidad que se ha vendido y nos mostrará el precio final de la fruta a partir de los datos guardados en el diccionario. Si la fruta no existe nos dará un error. Tras cada consulta el programa nos preguntará si queremos hacer otra consulta.
+""")
 
     #Se inicializa un diccionario con algunas claves y valores iniciales
     diccionario={
@@ -264,8 +255,8 @@ Ingresa que ejercicio quieres ejecutar:
     #Bucle que se repite mientras se quiera continuar
     continua = True
     while continua:
-      fruta=input("\nQue fruta se vendio?: ")
       
+      fruta=input("\nQue fruta se vendio?: ")
       if fruta in diccionario: #Se revisa si la opcion es valida
         n=int(input("Cuantos kilos vendio?: "))
         print("Se vendio $" + str(n * diccionario[fruta]) )
@@ -276,10 +267,11 @@ Ingresa que ejercicio quieres ejecutar:
       if x != 1:
         continua = False
 
-    '''
-    9.1 Ejercicio 1 (2 puntos)
-    Realice un programa que pregunte aleatoriamente una multiplicación. El programa debe indicar si la respuesta ha sido correcta o no (en caso que la respuesta sea incorrecta el programa debe indicar cuál es la correcta). El programa preguntará 10 multiplicaciones, y al finalizar mostrará el número de aciertos.
-    '''
+  elif ejercicio == 13:
+    print("""
+9.1 Ejercicio 1 (2 puntos)
+Realice un programa que pregunte aleatoriamente una multiplicación. El programa debe indicar si la respuesta ha sido correcta o no (en caso que la respuesta sea incorrecta el programa debe indicar cuál es la correcta). El programa preguntará 10 multiplicaciones, y al finalizar mostrará el número de aciertos.
+""")
 
     import random
     random.seed(None)
@@ -308,25 +300,22 @@ Ingresa que ejercicio quieres ejecutar:
         
     print(f"\nJuego terminado. Obtuviste {len(respuestas_correctas)} aciertos.")
 
-    '''
-    9.2 Ejercicio 2 (2 puntos) Obtener el cuadrado de todos los elementos en la lista. Lista: 1,2,3,4,5,6,7,8,9,10
-    '''
+  elif ejercicio == 14:
+    print("9.2 Ejercicio 2 (2 puntos) Obtener el cuadrado de todos los elementos en la lista. Lista: 1,2,3,4,5,6,7,8,9,10\n")
 
     lista=list(range(1,11))
     respuesta=list(map((lambda x: x**2), lista))
     print("\nLos cuadrados de los elementos de la lista", lista, "es", respuesta)
 
-    '''
-    9.3 Ejercicio 3 (2 puntos) Obtener la cantidad de elementos mayores a 5 en la tupla. tupla = (5,2,6,7,8,10,77,55,2,1,30,4,2,3)
-    '''
+  elif ejercicio == 15:
+    print("9.3 Ejercicio 3 (2 puntos) Obtener la cantidad de elementos mayores a 5 en la tupla. tupla = (5,2,6,7,8,10,77,55,2,1,30,4,2,3)\n")
 
     tupla = (5, 2, 6, 7, 8, 10, 77, 55, 2, 1, 30, 4, 2, 3)
     respuesta = len(list(filter(lambda x: x > 5, tupla)))
     print("\nHay", respuesta, "elementos mayores a 5 en la tupla", tupla)
 
-    """
-    9.4 Ejercicio 4 (2 puntos) Obtener la suma de todos los elementos en la lista
-    """
+  elif ejercicio == 16:
+    print("9.4 Ejercicio 4 (2 puntos) Obtener la suma de todos los elementos en la lista. Lista: 1,2,3,4,5,6,7,8,9,10\n")
 
     lista={i for i in range(1,11)}
     respuesta=sum(lista)
