@@ -2,6 +2,8 @@
 Aqui se almacenan ejercicios de Escuela de código de Python
 Voy a hacer un menu para ejecutar ejercicio por ejercicio.
 '''
+import random
+random.seed(None)
 
 while True:
   print("""
@@ -26,10 +28,8 @@ Ingresa que ejercicio quieres ejecutar:
   ejercicio = int(input(""))
 
   if ejercicio == 1: 
+
     print("4.1) Realizar un programa que inicialice una lista con 10 valores aleatorios (del 1 al 10) y posteriormente muestre en pantalla cada elemento de la lista junto con su cuadrado y su cubo.\n")
-    
-    import random
-    random.seed(None)
 
     #Inicializar la lista con  valores aleatorios entre 1 y 10
     lista1 = [random.randint(1, 10) for i in range(10)]
@@ -39,6 +39,7 @@ Ingresa que ejercicio quieres ejecutar:
       print("Elemento:", x,"Cuadrado:", x**2,"Cubo:", x**3)
 
   elif ejercicio == 2:
+
     print("4.2) Crea una lista e inicializarla con 5 cadenas de caracteres leídas por teclado. Copialos elementos de la lista en otra lista pero en orden inverso, y muestra sus elementos por la pantalla.\n")  
 
     # Inicializar la lista y leer las 5 cadenas de caracteres por teclado
@@ -52,6 +53,7 @@ Ingresa que ejercicio quieres ejecutar:
     print(lista_inversa)
 
   elif ejercicio == 3:
+
     print("4.3) Se quiere realizar un programa que lea por teclado las 5 notas obtenidas por un alumno (comprendidas entre 0 y 10). A continuación debe mostrar todas las notas, la nota media, la nota más alta que ha sacado y la menor.\n")
     
     # Inicializar la lista y leer las 5 notas por teclado
@@ -74,6 +76,7 @@ Ingresa que ejercicio quieres ejecutar:
     print("El promedio de las notas es: ", sum(lista3)/len(lista3))
 
   elif ejercicio == 4:
+
     print("""
 4.4) Codifica un programa en python que nos permita guardar los nombres de los alumnos de una clase y las notas que han obtenido. 
 Cada alumno puede tener distinta cantidad de notas. 
@@ -115,11 +118,13 @@ Nota: si se introduce el nombre de un alumno que ya existe el programa nos dará
         
         else:
           print("El alumno ya esta registrado, intenta de nuevo")
-          
+
+    print("")      
     for alumno in registro:
       print(alumno, "tiene un promedio de", sum(registro[alumno])/len(registro[alumno]))
 
   elif ejercicio == 5:
+
     print("4.5) Crea una tupla con los meses del año, pide números al usuario, si el número está entre 1 y la longitud máxima de la tupla, muestra el contenido de esa posición sino muestra un mensaje de error. El programa termina cuando el usuario introduce un cero.\n")
     
     meses=("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
@@ -130,6 +135,7 @@ Nota: si se introduce el nombre de un alumno que ya existe el programa nos dará
       else: print("Mensaje de error")
 
   elif ejercicio == 6:
+
     print("6.1) Realizar un ejemplo de menú, donde podemos escoger las distintas opciones hasta que seleccionamos la opción de “Salir”\n.")
     
     #Inicializar y mostrar el menu en forma de lista
@@ -150,7 +156,8 @@ Nota: si se introduce el nombre de un alumno que ya existe el programa nos dará
         print("Opcion no valida")
     print("Adios")
 
-  elif ejercicio == 7:      
+  elif ejercicio == 7: 
+
     print("6.2) Mostrar en pantalla los N primero número primos. Se pide por teclado la cantidad de números primos que queremos mostrar\n")
 
     #Define una funcion que devuelve una lista con los n primeros números primos
@@ -176,17 +183,22 @@ Nota: si se introduce el nombre de un alumno que ya existe el programa nos dará
     print("Los primeros", n, "números primos son:", obtener_numeros_primos(n))
 
   elif ejercicio == 8:
+
     print("""
 6.3) Una persona adquirió un producto para pagar en 20 meses. El primer mes pagó 10 €, el segundo 20 €, el tercero 40 € y así sucesivamente.
 Realizar un algoritmo para determinar cuánto debe pagar mensualmente y el total de lo que pagó después de los 20 meses.
 """)
 
     pago=10
+    total=0
     for x in range (20):
       print("El mes " + str(x+1) + " pago", pago)
+      total+=pago
       pago*=2
+    print("En total pago ", total)
 
   elif ejercicio == 9:
+
     print("6.4) Crea una aplicación que pida un número y calcule su factorial (El factorial de un número es el producto de todos los enteros entre 1 y el propio número y se representa por el número seguido de un signo de exclamación. Por ejemplo 5! = 1x2x3x4x5=120).\n")
 
     n=int(input("\nIngresa un numero para calcular su factorial: "))
@@ -196,6 +208,7 @@ Realizar un algoritmo para determinar cuánto debe pagar mensualmente y el total
     print("El factorial es:", factorial)
 
   elif ejercicio == 10:
+
     print("""
 8.1 Ejercicio 1 (2 puntos)
 Escribe un programa python que pida un número por teclado y que cree un diccionario cuyas claves sean desde el número 1 hasta el número indicado, y los valores sean los cuadrados de las claves.
@@ -215,6 +228,7 @@ Escribe un programa python que pida un número por teclado y que cree un diccion
     print(diccionario)
 
   elif ejercicio == 11:
+
     print("""
 8.2 Ejercicio 2 (2 puntos)
 Escribe un programa que lea una cadena y devuelva un diccionario con la cantidad de apariciones de cada carácter en la cadena.
@@ -232,6 +246,7 @@ Escribe un programa que lea una cadena y devuelva un diccionario con la cantidad
     print(diccionario)
 
   elif ejercicio == 12:
+
     print("""
 8.3 Ejercicio 3 (2 puntos)
 Vamos a crear un programa en python donde vamos a declarar un diccionario para guardar los precios de las distintas frutas. El programa pedirá el nombre de la fruta y la cantidad que se ha vendido y nos mostrará el precio final de la fruta a partir de los datos guardados en el diccionario. Si la fruta no existe nos dará un error. Tras cada consulta el programa nos preguntará si queremos hacer otra consulta.
@@ -268,19 +283,17 @@ Vamos a crear un programa en python donde vamos a declarar un diccionario para g
         continua = False
 
   elif ejercicio == 13:
+
     print("""
 9.1 Ejercicio 1 (2 puntos)
 Realice un programa que pregunte aleatoriamente una multiplicación. El programa debe indicar si la respuesta ha sido correcta o no (en caso que la respuesta sea incorrecta el programa debe indicar cuál es la correcta). El programa preguntará 10 multiplicaciones, y al finalizar mostrará el número de aciertos.
 """)
-
-    import random
-    random.seed(None)
-
     #Define una funcion que toma como argumento una tupla de 2 números, y devuelve verdadero o falso dependiendo si el usuario hizo la multiplicacion correctamente
     def preguntar_multiplicacion(tupla_de_numeros): 
       
       respuesta_correcta = tupla_de_numeros[0] * tupla_de_numeros[1]
-      respuesta_usuario = int(input( "\n¿Cuanto es", tupla_de_numeros[0], "x", tupla_de_numeros[1], "? "))
+      print("\n¿Cuanto es", tupla_de_numeros[0], "x", tupla_de_numeros[1], "? ", end=" ")
+      respuesta_usuario = int(input(""))
         
       if respuesta_usuario == respuesta_correcta:
         print("¡Respuesta correcta!")
@@ -289,7 +302,7 @@ Realice un programa que pregunte aleatoriamente una multiplicación. El programa
         print("Respuesta incorrecta. La respuesta correcta es", respuesta_correcta)
         return False
 
-    preguntas = list(map(lambda x: (random.randint(1, 10), random.randint(1, 10)), range(10)))
+    preguntas = list( map( lambda x: (random.randint(1, 10), random.randint(1, 10)), range(10) ) )
     #Preguntas es una lista de 10 tuplas de 2 numeros cada una
     #lambda genera 2 numeros aleatorios en forma de tupla
     #map ejecuta lambda de 0 a 9 (10 veces)
@@ -301,6 +314,7 @@ Realice un programa que pregunte aleatoriamente una multiplicación. El programa
     print(f"\nJuego terminado. Obtuviste {len(respuestas_correctas)} aciertos.")
 
   elif ejercicio == 14:
+
     print("9.2 Ejercicio 2 (2 puntos) Obtener el cuadrado de todos los elementos en la lista. Lista: 1,2,3,4,5,6,7,8,9,10\n")
 
     lista=list(range(1,11))
@@ -308,6 +322,7 @@ Realice un programa que pregunte aleatoriamente una multiplicación. El programa
     print("\nLos cuadrados de los elementos de la lista", lista, "es", respuesta)
 
   elif ejercicio == 15:
+
     print("9.3 Ejercicio 3 (2 puntos) Obtener la cantidad de elementos mayores a 5 en la tupla. tupla = (5,2,6,7,8,10,77,55,2,1,30,4,2,3)\n")
 
     tupla = (5, 2, 6, 7, 8, 10, 77, 55, 2, 1, 30, 4, 2, 3)
@@ -315,6 +330,7 @@ Realice un programa que pregunte aleatoriamente una multiplicación. El programa
     print("\nHay", respuesta, "elementos mayores a 5 en la tupla", tupla)
 
   elif ejercicio == 16:
+    
     print("9.4 Ejercicio 4 (2 puntos) Obtener la suma de todos los elementos en la lista. Lista: 1,2,3,4,5,6,7,8,9,10\n")
 
     lista={i for i in range(1,11)}
