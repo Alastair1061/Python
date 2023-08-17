@@ -14,11 +14,14 @@ def obtenerCategoria():
     print(i, ")", x)
   print(i+1,") Aleatorio")
 
-  while True: #Bucle para asegurar que se ingresa una opcion valida
+  #Bucle para asegurar que se ingresa una opcion valida
+  while True: 
     eleccion = int(input("\n")) 
-    if (0 < eleccion <= len(palabras) + 1):  
+    if 0 < eleccion <= len(palabras) + 1: 
       break
-  if (eleccion == len(palabras) + 1):  #si elige aleatorio, se regresa una categoria aleatoria
+
+  #Si elige aleatorio, se elige una categoria aleatoria
+  if eleccion == len(palabras) + 1:  
     eleccion = random.randint(1, len(palabras))
 
   llaves = list(palabras.keys())
@@ -32,12 +35,17 @@ def Ejecucion():
   respuesta = ["_"] * len(palabra)
   errores = 0
   intentos = []
-  letras = ("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
+  letras = "abcdefghijklmnñopqrstuvwxyz"
   
   print("\nQue comience el juego")
   
   while True:
-    print(ahorcado_diagramas[errores] + "\n\t\t" + str(respuesta) + "\n")
+
+    #Pinta el tablero y la respuesta
+    print(ahorcado_diagramas[errores])
+    for letra in respuesta:
+      print("   ", letra, end="")
+    print("\n")
   
     #Bucle que se repite si se ingresa una letra repetida o si se ingresa algo que no sea una letra
     while True:
@@ -50,7 +58,7 @@ def Ejecucion():
         break
   
     #aqui se comprueba si acerto y se guarda la letra en la respuesta o se agrega un error
-    if (letra in palabra):
+    if letra in palabra:
       for i, x in enumerate(palabra):
         if letra == x:
           respuesta[i] = letra
@@ -58,11 +66,11 @@ def Ejecucion():
       errores += 1
   
     #aqui se comprueba si ya se completo la palabra, si ingreso la palabra correcta o si ya perdio
-    if "_" not in respuesta:
-      print(ahorcado_diagramas[errores] + "\n\t\t" + str(respuesta) + "\n\nFelicidades, ganaste")
-      break
-    elif letra == palabra:
-      print(ahorcado_diagramas[errores] + "\n\t\t" + str(palabra) + "\n\nFelicidades, ganaste")
+    if "_" not in respuesta or letra == palabra: 
+      print(ahorcado_diagramas[errores])
+      for letra in palabra:
+        print("   ", letra, end="")
+      print("\n\nFelicidades, ganaste")
       break
     elif errores == len(ahorcado_diagramas) - 1:
       print(ahorcado_diagramas[errores] + "\n\nYa perdiste \nLa palabra correcta era: " + str(palabra))
