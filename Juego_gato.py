@@ -48,6 +48,7 @@ def play_game(winner):
           
         elif board[int(move)-1] == "X" or board[int(move)-1] == "O":
             print("Ya esta ocupado, intenta otro.")
+            i-=1
             continue
           
         else:
